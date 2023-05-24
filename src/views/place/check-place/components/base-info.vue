@@ -1,0 +1,136 @@
+<template>
+  <a-form :model="renderData" class="form" :label-col-props="{ span: 6 }" :wrapper-col-props="{ span: 18 }">
+    <a-form-item field="sId" label="场所编号" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sId" disabled size="large" />
+    </a-form-item>
+
+    <a-form-item field="sNums" label="场所序号" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sNums" disabled size="large" />
+    </a-form-item>
+
+    <a-form-item field="sName" label="场所名称" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sName" disabled size="large" />
+    </a-form-item>
+
+    <a-form-item field="sCampusName" label="所在校区" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sCampusName" disabled size="large" />
+    </a-form-item>
+
+    <a-form-item field="sTypeName" label="场地类别" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sTypeName" disabled size="large" />
+    </a-form-item>
+
+    <a-form-item field="sCharge" label="场地资费" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-input :placeholder="renderData.sCharge" disabled size="large">
+        <template #append>
+          元 / 小时
+        </template>
+      </a-input>
+    </a-form-item>
+    <a-form-item field="cre" label="创建时间" :rules="[
+      {
+        required: true,
+      }
+    ]">
+      <a-date-picker :placeholder="renderData.cre" disabled size="large" />
+    </a-form-item>
+    <a-form-item>
+      <a-button type="primary" @click="goToPlaceInquiry">
+        返回列表
+      </a-button>
+    </a-form-item>
+  </a-form>
+</template>
+
+<script lang="ts" setup>
+import { ref, defineProps } from 'vue';
+import { useRouter } from 'vue-router';
+import { getInfoSite } from '@/network/module/place';
+
+const router = useRouter()
+
+const props = defineProps<{
+  sId: string,
+}>()
+
+const renderData: any = ref({})
+const getPlace = async () => {
+  const { data } = await getInfoSite({ sId: props.sId })
+  renderData.value = data.site;
+  for (const key in renderData.value) {
+    if (typeof renderData.value[key] === 'number')
+      renderData.value[key] = (renderData.value[key]).toString()
+  }
+}
+getPlace()
+
+const goToPlaceInquiry = () => {
+  router.push({ name: 'PlaceInquiry' })
+}
+</script>
+
+<style scoped lang="less">
+.container {
+  padding: 20px;
+
+  .keep-margin {
+    margin-bottom: 20px;
+  }
+}
+
+:deep(input:disabled) {
+  background-color: #f2f3f5;
+}
+
+:deep(input::placeholder) {
+  color: black !important;
+}
+
+:deep(.arco-input-wrapper .arco-input[disabled]) {
+  -webkit-text-fill-color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 0;
+  background-color: var(--color-bg-2);
+}
+
+.steps {
+  margin-bottom: 36px;
+}
+
+.form {
+  width: 500px;
+}
+
+.form-content {
+  padding: 8px 50px 0 30px;
+}
+</style>

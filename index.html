@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" type="image/x-icon" href="./src/assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广东海洋大学体育场馆管理系统</title>
+  <style>
+    #cupcake {
+      position: absolute;
+      top: 0;
+      left: 0;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      -mos-flex-direction: row;
+      -o-flex-direction: row;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -ms-justify-content: center;
+      height: 100%;
+      width: 100%;
+      background-color: #fff;
+    }
+  
+    #cupcake .letter {
+      font-size: 60px;
+      color: #222;
+      font-family: tahoma;
+    }
+  
+    .cupcake-box {
+      display: box;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+  
+    #cupcake .cupcakeCircle,
+    #cupcake .cupcakeInner,
+    #cupcake .cupcakeCore {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+    }
+  
+    #cupcake .cupcake,
+    #cupcake .letter,
+    #cupcake .cupcakeCircle,
+    #cupcake .cupcakeInner,
+    #cupcake .cupcakeCore {
+      flex: none;
+      -webkit-flex: none;
+      -moz-flex: none;
+      -ms-flex: none;
+      -o-flex: none;
+    }
+  
+    #cupcake .letter,
+    #cupcake .cupcakeCircle {
+      align-self: center;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      -o-align-self: center;
+      -ms-align-self: center;
+    }
+  
+    #cupcake .cupcakeCircle {
+      align-items: center;
+      -ms-align-items: center;
+      justify-content: center;
+      -ms-justify-content: center;
+      height: 60px;
+      width: 60px;
+      background-color: #222;
+    }
+  
+    #cupcake .cupcakeInner {
+      align-self: center;
+      -ms-align-self: center;
+      justify-content: center;
+      -ms-justify-content: center;
+      height: 50%;
+      width: 50%;
+      background-color: #fff;
+  
+      animation-name: cupcakeAnimate;
+      animation-duration: 500ms;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+  
+      -webkit-animation-name: cupcakeAnimate;
+      -webkit-animation-duration: 500ms;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+  
+    }
+  
+    #cupcake .cupcakeCore {
+      align-self: center;
+      -ms-align-self: center;
+      height: 25%;
+      width: 25%;
+      background-color: #222;
+      animation-name: coreAnimate;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      -webkit-animation-name: coreAnimate;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+    }
+  
+    @-webkit-keyframes cupcakeAnimate {
+      to {
+        height: 80%;
+        width: 80%;
+      }
+    }
+  
+    @keyframes cupcakeAnimate {
+      to {
+        height: 80%;
+        width: 80%;
+      }
+    }
+  
+    @-webkit-keyframes coreAnimate {
+      to {
+        height: 80%;
+        width: 80%;
+      }
+    }
+  
+    @keyframes coreAnimate {
+      to {
+        height: 80%;
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="cupcake" class="cupcake-box">
+      <span class="letter">L</span>
+      <div class="cupcakeCircle cupcake-box">
+        <div class="cupcakeInner cupcake-box">
+          <div class="cupcakeCore cupcake-box"></div>
+        </div>
+      </div>
+      <span class="letter cupcake-box">A</span>
+      <span class="letter cupcake-box">D</span>
+      <span class="letter cupcake-box">I</span>
+      <span class="letter cupcake-box">N</span>
+      <span class="letter cupcake-box">G</span>
+      <span class="letter cupcake-box">...</span>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
